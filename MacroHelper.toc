@@ -1,0 +1,12 @@
+## Interface: 80205
+## Title: MacroHelper
+## Author: Kayaco-TarrenMill
+## Notes: Macro creation helper.
+## Version: 0.1
+## SavedVariables: MacroHelperVars
+
+embeds.xml
+
+config.lua
+lib.lua
+MacroHelper.lua
