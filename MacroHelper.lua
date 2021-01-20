@@ -165,7 +165,7 @@ function MacroHelper:GenCastLine(spell)
 end
 
 function MacroHelper:GenStopCastLine()
-	return (self:GetDB("stop_cast") and "\n/stopcasting" or "")
+	return (self:GetDB("stop_cast") and "\n/stopcasting\n" or "")
 end
 
 function UpdatePreview()
