@@ -21,6 +21,9 @@ function MacroHelper:SetDB(key, value)
 end
 
 function MacroHelper:OnEnable()
+	-- set tootip for spelltab
+	MacroHelperSpellTab.tooltip = "Macro Helper"
+
 	MainFrame:AddChild(CreateAceLabel("Modifiers", FONT_SIZE_SECTION))
 	MainFrame:AddChild(CreateAceVertSpacer(SPACER_Y_TITLE))
 	local opt_stop_cast = CreateAceCheckbox("Stop Cast", self:GetDB("stop_cast"))
@@ -55,6 +58,7 @@ function MacroHelper:OnEnable()
 	targets["@mouseover"] = "@Mouse Over"
 	targets["@focus"] = "@Focus"
 	targets["@cursor"] = "@Cursor"
+	targets["none"] = "None"
 	MainFrame:AddChild(CreateAceVertSpacer(SPACER_Y_SECTION))
 	MainFrame:AddChild(CreateAceLabel("Targets", FONT_SIZE_SECTION))
 	MainFrame:AddChild(CreateAceVertSpacer(SPACER_Y_TITLE))
@@ -147,7 +151,7 @@ function MacroHelper:GenTarget(target, mods)
 	mods = mods or self:GenModifiers()
 	local tar = self:GetDB(target)
 	local str = ""
-	if tar ~= nil then
+	if tar ~= nil and tar ~= "none" then
 		str = str .. "[" .. tar .. "," .. mods .. "]"
 	end
 	return str
@@ -187,7 +191,7 @@ local onClickSpellBook = function (self, button)
 		)
 		if spell ~= nil then
 			local id = CreateMacro(spell, "INV_MISC_QUESTIONMARK", GenMacroBody(spell), 1)
-			MouseOver:Print("Macro created for " .. spell .. "(" .. id .. ")");
+			MacroHelper:Print("Macro created for " .. spell .. "(" .. id .. ")");
 		end
 	end
 end

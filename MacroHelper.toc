@@ -2,10 +2,11 @@
 ## Title: MacroHelper
 ## Author: Kayaco-TarrenMill
 ## Notes: Macro creation helper.
-## Version: 0.1.1
+## Version: 0.1.2
 ## SavedVariables: MacroHelperVars
 
 embeds.xml
+MacroHelper.xml
 
 config.lua
 lib.lua
